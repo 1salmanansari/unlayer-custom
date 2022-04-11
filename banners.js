@@ -1,4 +1,3 @@
-console.log('check update here');
 const editorTemplate = `<button id="addBanner" class="button" style="color: ${theme.secondary};background-color:${theme.primary};">Add Banner</button>`;
 
 const logoItemsTemplate = _.template(`
@@ -10,7 +9,6 @@ const logoItemsTemplate = _.template(`
 `);
 
 const modalTemplate = function (data) {
-    console.log('sam log data', data);
     return `
   <div class="modal" id="product_library_modal">
     <div class="modal-dialog modal-dialog-centered">
@@ -84,32 +82,22 @@ unlayer.registerPropertyEditor({
                 setTimeout(() => {
                     // We are using event bubling to capture clicked item instead of registering click event on all product items.
                     const selectButton = document.querySelector('.products-list');
-                    console.log('sam target selectButton', selectButton);
                     if (!selectButton) return;
                     selectButton.onclick = function (e) {
-                        console.log('sam target', e.target);
-                        console.log('sam target id', e.target.id);
                         if (e.target.id === 'product-item') {
                             // If user clicks on logo item
                             // Find selected item from logo list
                             const selectedProduct = data.banners.find(
                                 (item) => item.id === parseInt(e.target.dataset.uuid)
                             );
-                            console.log('sam target if selectedProduct', selectedProduct);
                             updateValue({ selected: selectedProduct });
                         } else {
                             // If user click on child of product item (e.g. title, price, image or desctiption)
                             const parent = e.target.parentElement;
-                            console.log('sam target parent', parent);
-                            console.log('sam target parent.id', parent.id);
-                            console.log('sam target parent.uuid', parent.dataset.uuid);
-                            console.log('sam target cond', parent && parent.id !== 'product-item');
                             if (parent && parent.id !== 'product-item') return;
-                            console.log('sam target parent', { data, uid: parent.dataset.uuid });
                             const selectedProduct = data.banners.find(
                                 (item) => item.id === parseInt(parent.dataset.uuid)
                             );
-                            console.log('sam target else selectedProduct', selectedProduct);
                             updateValue({ selected: selectedProduct });
                         }
                         hideModal();
@@ -148,7 +136,6 @@ unlayer.registerTool({
         const { name, value, data } = source;
         // Transform the values here
         // We will update selected values in property editor here
-        console.log('sam log details', name, value, data);
         const newValues =
             name === 'bannerLibrary'
                 ? {
@@ -169,17 +156,14 @@ unlayer.registerTool({
     renderer: {
         Viewer: unlayer.createViewer({
             render(values) {
-                console.log('sam log Viewer', values)
                 return toolTemplate(values, true);
             },
         }),
         exporters: {
             web(values) {
-                console.log('sam log exporters web', values)
                 return toolTemplate(values);
             },
             email(values) {
-                console.log('sam log exporters email', values)
                 return toolEmailTemplate(values);
             },
         },
