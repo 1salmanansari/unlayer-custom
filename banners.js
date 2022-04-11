@@ -87,6 +87,7 @@ unlayer.registerPropertyEditor({
                     console.log('sam target selectButton', selectButton);
                     if (!selectButton) return;
                     selectButton.onclick = function (e) {
+                        console.log('sam target', e.target);
                         console.log('sam target id', e.target.id);
                         if (e.target.id === 'product-item') {
                             // If user clicks on logo item
