@@ -141,6 +141,7 @@ unlayer.registerTool({
     const { name, value, data } = source;
     // Transform the values here
     // We will update selected values in property editor here
+    console.log('sam log details', name, value, data);
     const newValues =
       name === 'bannerLibrary'
         ? {
