@@ -105,7 +105,7 @@ unlayer.registerPropertyEditor({
                             console.log('sam target parent.uuid', parent.dataset.uuid);
                             console.log('sam target cond', parent && parent.id !== 'product-item');
                             if (parent && parent.id !== 'product-item') return;
-                            console.log('sam target parent');
+                            console.log('sam target parent', { data, uid: parent.dataset.uuid });
                             const selectedProduct = data.find(
                                 (item) => Number(item.id) === Number(parent.dataset.uuid)
                             );
