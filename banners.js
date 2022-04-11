@@ -162,14 +162,17 @@ unlayer.registerTool({
   renderer: {
     Viewer: unlayer.createViewer({
       render(values) {
+        console.log('sam log Viewer', values)
         return toolTemplate(values, true);
       },
     }),
     exporters: {
       web(values) {
+        console.log('sam log exporters web', values)
         return toolTemplate(values);
       },
       email(values) {
+        console.log('sam log exporters email', values)
         return toolEmailTemplate(values);
       },
     },
