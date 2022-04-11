@@ -2,7 +2,7 @@ console.log('check update here');
 const editorTemplate = `<button id="addBanner" class="button" style="color: ${theme.secondary};background-color:${theme.primary};">Add Banner</button>`;
 
 const logoItemsTemplate = _.template(`
-<% _.forEach(logos, function(item) { %>
+<% _.forEach(banners, function(item) { %>
   <div class="product-item" id="product-item" data-uuid='<%= item.id %>' data-image="<%= item.img %>" >
   <img src="<%= item.img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
   </div>
@@ -91,7 +91,7 @@ unlayer.registerPropertyEditor({
             if (e.target.id === 'product-item') {
               // If user clicks on logo item
               // Find selected item from logo list
-              const selectedProduct = data.logos.find(
+              const selectedProduct = data.banners.find(
                 (item) => item.id === parseInt(e.target.dataset.uuid)
               );
               updateValue({ selected: selectedProduct });
@@ -99,13 +99,13 @@ unlayer.registerPropertyEditor({
               // If user click on child of product item (e.g. title, price, image or desctiption)
               const parent = e.target.parentElement;
               if (parent && parent.id !== 'product-item') return;
-              const selectedProduct = data.logos.find(
+              const selectedProduct = data.banners.find(
                 (item) => item.id === parseInt(parent.dataset.uuid)
               );
               updateValue({ selected: selectedProduct });
             }
             hideModal();
-            // This is a hack to close property editor right bar on selecting an item from logos list.
+            // This is a hack to close property editor right bar on selecting an item from banner list.
             const outerBody = document.querySelector('#u_body');
             outerBody.click();
           };
