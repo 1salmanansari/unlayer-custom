@@ -93,7 +93,7 @@ unlayer.registerPropertyEditor({
                             // If user clicks on logo item
                             // Find selected item from logo list
                             const selectedProduct = data.banners.find(
-                                (item) => String(item.id) === String(e.target.dataset.uuid)
+                                (item) => Number(item.id) === Number(e.target.dataset.uuid)
                             );
                             console.log('sam target if selectedProduct', selectedProduct);
                             updateValue({ selected: selectedProduct });
@@ -107,7 +107,7 @@ unlayer.registerPropertyEditor({
                             if (parent && parent.id !== 'product-item') return;
                             console.log('sam target parent');
                             const selectedProduct = data.find(
-                                (item) => String(item.id) === String(parent.dataset.uuid)
+                                (item) => Number(item.id) === Number(parent.dataset.uuid)
                             );
                             console.log('sam target else selectedProduct', selectedProduct);
                             updateValue({ selected: selectedProduct });
