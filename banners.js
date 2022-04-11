@@ -1,3 +1,4 @@
+console.log('check update here');
 const editorTemplate = `<button id="addBanner" class="button" style="color: ${theme.secondary};background-color:${theme.primary};">Add Banner</button>`;
 
 const logoItemsTemplate = _.template(`
