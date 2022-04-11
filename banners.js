@@ -94,14 +94,17 @@ unlayer.registerPropertyEditor({
                             const selectedProduct = data.banners.find(
                                 (item) => item.id === parseInt(e.target.dataset.uuid)
                             );
+                            console.log('sam target if selectedProduct', selectedProduct);
                             updateValue({ selected: selectedProduct });
                         } else {
                             // If user click on child of product item (e.g. title, price, image or desctiption)
                             const parent = e.target.parentElement;
+                            console.log('sam target parent', parent);
                             if (parent && parent.id !== 'product-item') return;
                             const selectedProduct = data.banners.find(
                                 (item) => item.id === parseInt(parent.dataset.uuid)
                             );
+                            console.log('sam target else selectedProduct', selectedProduct);
                             updateValue({ selected: selectedProduct });
                         }
                         hideModal();
