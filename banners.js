@@ -1,1 +1,5 @@
-  console.log('custom log here');
+const sampleFunc = () => {
+  alert('custom log here');
+};
+
+sampleFunc();
