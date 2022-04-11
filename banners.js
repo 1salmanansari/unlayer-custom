@@ -101,8 +101,10 @@ unlayer.registerPropertyEditor({
                             // If user click on child of product item (e.g. title, price, image or desctiption)
                             const parent = e.target.parentElement;
                             console.log('sam target parent', parent);
+                            console.log('sam target parent.id', parent.id);
                             if (parent && parent.id !== 'product-item') return;
-                            const selectedProduct = data.banners.find(
+                            console.log('sam target parent');
+                            const selectedProduct = data.find(
                                 (item) => item.id === parseInt(parent.dataset.uuid)
                             );
                             console.log('sam target else selectedProduct', selectedProduct);
