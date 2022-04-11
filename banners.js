@@ -15,7 +15,7 @@ const modalTemplate = function (data) {
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title">Logo List</h3>
+          <h3 class="modal-title">Banner List</h3>
           <button class="close" id="modalCloseBtn">&times;</button>
         </div>
         <div class="modal-body">
@@ -26,7 +26,7 @@ const modalTemplate = function (data) {
         </div>   
         </div>
           <div class="products-list">
-            ${logoItemsTemplate(data)}
+            ${logoItemsTemplate(data.banners)}
           </div>
         </div>
         <div class="modal-footer">
