@@ -10,6 +10,8 @@ const logoItemsTemplate = _.template(`
 `);
 
 const modalTemplate = function (data) {
+  console.log('sam log data', data);
+  alert(`sam log data ${JSONS.stringify(data)}`);
   return `
   <div class="modal" id="product_library_modal">
     <div class="modal-dialog modal-dialog-centered">
@@ -26,7 +28,7 @@ const modalTemplate = function (data) {
         </div>   
         </div>
           <div class="products-list">
-            ${logoItemsTemplate(data.banners)}
+            ${logoItemsTemplate(data)}
           </div>
         </div>
         <div class="modal-footer">
