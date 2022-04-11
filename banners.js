@@ -102,6 +102,7 @@ unlayer.registerPropertyEditor({
                             const parent = e.target.parentElement;
                             console.log('sam target parent', parent);
                             console.log('sam target parent.id', parent.id);
+                            console.log('sam target cond', parent && parent.id !== 'product-item');
                             if (parent && parent.id !== 'product-item') return;
                             console.log('sam target parent');
                             const selectedProduct = data.find(
